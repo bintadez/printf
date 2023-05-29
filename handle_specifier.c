@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * handle_specifier - Helper function to handle format specifiers
  * @format: The format string
@@ -7,7 +6,7 @@
  *
  * Return: The number of characters printed.
  */
-int handle_specifier(const char* format, int* args)
+int handle_specifier(const char *format, int *args)
 {
 	int printed_char = 0;
 
@@ -15,39 +14,38 @@ int handle_specifier(const char* format, int* args)
 	{
 		if (*format == '%')
 		{
-			 format++;
-			 switch (*format)
+			format++;
+			switch (*format)
 			{
-				 case 'c':
-					 _putchar(*args);
+				case 'c':
+					_putchar(*args);
 					printed_char++;
-		 			break;
-                		case 's':
-                    			printed_char += _puts((char*)*args);
-                    			break;
-                		case '%':
-                    			_putchar('%');
-                    			printed_char++;
-                    			break;
-                		case 'd':
-                		case 'i':
-                  			printed_char += _putnum(*args);
-                    			break;
-                		default:
+					break;
+				case 's':
+					printed_char += _puts((char *)*args);
+					break;
+				case '%':
+					_putchar('%');
+					printed_char++;
+					break;
+				case 'd':
+				case 'i':
+					printed_char += _putnum(*args);
+					break;
+				default:
 					_putchar('%');
 					_putchar(*format);
-                    			printed_char += 2;
-                    			break;
-           		}
-            	        args++;
-              	}
+					printed_char += 2;
+					break;
+			}
+			args++;
+		}
 		else
-        	{
-            		_putchar(*format);
-            		printed_char++;
-        	}
-
+		{
+			_putchar(*format);
+			printed_char++;
+		}
 		format++;
-          }
-
-          return (printed_char);
+	}
+	return (printed_char);
+}
