@@ -6,7 +6,7 @@
  *
  * Return: The number of characters printed.
  */
-int handle_specifier(const char *format, int *args)
+int handle_specifier(const char *format, char **args)
 {
 	int printed_char = 0;
 
