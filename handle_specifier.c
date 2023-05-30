@@ -5,8 +5,8 @@
  * @args: The arguments list
  *
  * Return: The number of characters printed.
- */
-int handle_specifier(const char *format, char **args)
+*/
+int handle_specifier(const char *format, int *args)
 {
 	int printed_char = 0;
 
@@ -22,7 +22,7 @@ int handle_specifier(const char *format, char **args)
 					printed_char++;
 					break;
 				case 's':
-					printed_char += _puts((char *)*args);
+					printed_char += _puts((char *)&args);
 					break;
 				case '%':
 					_putchar('%');
